@@ -12,8 +12,8 @@ async function loadPartial(selector, path) {
 }
 
 async function initPartials() {
-  await loadPartial("#site-header", "/partials/header.html");
-  await loadPartial("#site-footer", "/partials/footer.html");
+  await loadPartial("#site-header", "partials/header.html");
+  await loadPartial("#site-footer", "partials/footer.html");
 
   const navToggle = document.querySelector("[data-nav-toggle]");
   const navLinks = document.querySelector("[data-nav-links]");

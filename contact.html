@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Mr. Vo Landscapers</title>
+  <meta name="description" content="Full-service landscaping, hardscape, irrigation, and outdoor improvement services.">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main>
+
+    <section class="hero hero--simple">
+      <div class="container">
+        <p class="eyebrow">Contact</p>
+        <h1>Request a landscaping estimate.</h1>
+        <p>Choose the service you need and send the project details. This form is frontend-ready and includes placeholders for backend email, CRM, and tracking connections.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid grid-2">
+        <div>
+          <h2 class="section-title">Tell us what you need.</h2>
+          <p>For faster estimates, include your city, project type, timeline, and a short description of the outdoor area.</p>
+          <div class="cta-row">
+            <a class="btn btn-secondary" href="tel:+15551234567">Call (555) 123-4567</a>
+          </div>
+        </div>
+
+        <form class="card card-body form" data-lead-form>
+          <input type="hidden" name="page_source" value="contact-page">
+          <label>Name <input type="text" name="name" required></label>
+          <label>Phone <input type="tel" name="phone" required></label>
+          <label>Email <input type="email" name="email"></label>
+          <label>Service Needed
+            <select name="service" required>
+              <option value="">Select a service</option>
+              <option value="Paver Installation">Paver Installation</option>
+              <option value="Stamped Concrete">Stamped Concrete</option>
+              <option value="Commercial Paving">Commercial Paving</option>
+              <option value="Artificial Grass">Artificial Grass</option>
+              <option value="Sod Installation">Sod Installation</option>
+              <option value="Lawn Overhaul">Lawn Overhaul</option>
+              <option value="Deck Building">Deck Building</option>
+              <option value="Fence Installation">Fence Installation</option>
+              <option value="Backyard Remodel">Backyard Remodel</option>
+              <option value="Sprinkler Repair">Sprinkler Repair</option>
+              <option value="Irrigation Installation">Irrigation Installation</option>
+              <option value="Yard Drainage">Yard Drainage</option>
+              <option value="Landscape Design">Landscape Design</option>
+            </select>
+          </label>
+          <label>City / ZIP <input type="text" name="city"></label>
+          <label>Project Details <textarea name="message" required></textarea></label>
+          <button class="btn btn-primary" type="submit">Send Estimate Request</button>
+          <p class="form-note">Backend placeholder: connect this form to email, CRM, or automation later.</p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

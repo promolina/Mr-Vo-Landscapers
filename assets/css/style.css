@@ -1,0 +1,615 @@
+/* =========================================================
+   Mr. Vo Landscapers - Main Stylesheet
+   Sections are labeled so future edits stay clean.
+   ========================================================= */
+
+/* =========================================================
+   01. THEME VARIABLES
+   Change colors, fonts, spacing, and visual identity here.
+   ========================================================= */
+:root {
+  --color-primary: #2f6f3e;
+  --color-primary-dark: #184421;
+  --color-accent: #f4b942;
+  --color-accent-dark: #c58a13;
+  --color-ink: #172016;
+  --color-muted: #5d6a5a;
+  --color-soft: #f4f7f1;
+  --color-white: #ffffff;
+  --color-border: #dce5d8;
+  --color-danger: #b23a2f;
+
+  --font-main: Arial, Helvetica, sans-serif;
+  --font-display: Georgia, "Times New Roman", serif;
+
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+
+  --shadow-soft: 0 14px 35px rgba(23, 32, 22, 0.10);
+  --shadow-pop: 0 16px 36px rgba(47, 111, 62, 0.32);
+
+  --container: 1180px;
+  --section-space: 84px;
+  --transition: 180ms ease;
+}
+
+/* =========================================================
+   02. RESET + BASE BODY
+   ========================================================= */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  color: var(--color-ink);
+  background: var(--color-white);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+p {
+  color: var(--color-muted);
+}
+
+main {
+  min-height: 60vh;
+}
+
+.container {
+  width: min(100% - 36px, var(--container));
+  margin-inline: auto;
+}
+
+.section {
+  padding: var(--section-space) 0;
+}
+
+.section-soft {
+  background: var(--color-soft);
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--color-primary);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.section-title {
+  margin: 0 0 14px;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.08;
+}
+
+.section-intro {
+  max-width: 760px;
+  margin: 0 0 34px;
+  font-size: 1.08rem;
+}
+
+/* =========================================================
+   03. HEADER + STICKY PHONE BAR
+   ========================================================= */
+.phone-bar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--color-primary-dark);
+  color: var(--color-white);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.phone-bar__inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 42px;
+  gap: 12px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.phone-bar a {
+  color: var(--color-accent);
+  animation: phonePulse 2.2s infinite;
+}
+
+.site-header {
+  position: sticky;
+  top: 42px;
+  z-index: 900;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.nav {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.logo {
+  display: grid;
+  gap: 0;
+  font-weight: 900;
+  line-height: 1.05;
+}
+
+.logo span:first-child {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: var(--color-primary-dark);
+}
+
+.logo span:last-child {
+  font-size: 0.78rem;
+  color: var(--color-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  font-weight: 800;
+  color: var(--color-ink);
+}
+
+.nav-links a {
+  position: relative;
+}
+
+.nav-links a:not(.btn)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: var(--color-primary);
+  transition: width var(--transition);
+}
+
+.nav-links a:hover::after,
+.nav-links a:focus-visible::after {
+  width: 100%;
+}
+
+.nav-toggle {
+  display: none;
+  border: 0;
+  background: var(--color-soft);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  font-weight: 900;
+}
+
+/* =========================================================
+   04. BUTTONS + CTA ANIMATION
+   All contact and phone buttons should POP.
+   ========================================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  font-weight: 900;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  color: var(--color-ink);
+  box-shadow: 0 10px 20px rgba(244, 185, 66, 0.24);
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: var(--shadow-pop);
+  background: #ffd163;
+}
+
+.btn-secondary {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: var(--shadow-pop);
+}
+
+.btn-outline {
+  border-color: var(--color-primary);
+  color: var(--color-primary-dark);
+  background: var(--color-white);
+}
+
+.btn-outline:hover,
+.btn-outline:focus-visible {
+  transform: translateY(-3px);
+  background: var(--color-soft);
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+
+/* =========================================================
+   05. HERO
+   ========================================================= */
+.hero {
+  padding: 90px 0;
+  background:
+    linear-gradient(90deg, rgba(24, 68, 33, 0.90), rgba(47, 111, 62, 0.60)),
+    url("../images/gallery/screenshot.png") center/cover;
+  color: var(--color-white);
+}
+
+.hero--simple {
+  padding: 74px 0;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: 36px;
+  align-items: center;
+}
+
+.hero h1 {
+  margin: 0 0 18px;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 5rem);
+  line-height: 0.98;
+}
+
+.hero p {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 1.16rem;
+  max-width: 720px;
+}
+
+.hero-card {
+  background: rgba(255, 255, 255, 0.96);
+  color: var(--color-ink);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-soft);
+}
+
+.hero-card p {
+  color: var(--color-muted);
+}
+
+/* =========================================================
+   06. CARDS + GRIDS
+   ========================================================= */
+.grid {
+  display: grid;
+  gap: 22px;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(23, 32, 22, 0.06);
+}
+
+.card-body {
+  padding: 24px;
+}
+
+.card h3 {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+}
+
+.card p {
+  margin-top: 0;
+}
+
+.placeholder-img {
+  min-height: 188px;
+  background:
+    linear-gradient(135deg, rgba(47, 111, 62, 0.84), rgba(244, 185, 66, 0.66)),
+    radial-gradient(circle at top left, rgba(255,255,255,0.65), transparent 35%);
+  display: grid;
+  place-items: center;
+  color: var(--color-white);
+  font-weight: 900;
+  text-align: center;
+  padding: 18px;
+}
+
+.service-category {
+  margin-top: 44px;
+}
+
+/* =========================================================
+   07. FORMS
+   ========================================================= */
+.form {
+  display: grid;
+  gap: 14px;
+}
+
+.form label {
+  display: grid;
+  gap: 6px;
+  font-weight: 800;
+}
+
+.form input,
+.form select,
+.form textarea {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  font: inherit;
+  background: var(--color-white);
+}
+
+.form textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.form-note {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* =========================================================
+   08. GALLERY
+   ========================================================= */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.gallery-item {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: var(--color-soft);
+}
+
+.gallery-item img,
+.gallery-item .placeholder-img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+/* =========================================================
+   09. FAQS
+   ========================================================= */
+.faq-list {
+  display: grid;
+  gap: 14px;
+}
+
+.faq-item {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 22px;
+}
+
+.faq-item h3 {
+  margin: 0 0 8px;
+}
+
+/* =========================================================
+   10. FOOTER
+   ========================================================= */
+.site-footer {
+  background: var(--color-primary-dark);
+  color: var(--color-white);
+  padding: 58px 0 26px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr;
+  gap: 28px;
+}
+
+.site-footer p,
+.site-footer a {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.site-footer h3,
+.site-footer h4 {
+  color: var(--color-white);
+  margin-top: 0;
+}
+
+.footer-list {
+  display: grid;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.social-links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.social-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--color-white);
+  font-weight: 900;
+  transition: transform var(--transition), background var(--transition);
+}
+
+.social-icon:hover {
+  transform: translateY(-3px) scale(1.08);
+  background: var(--color-accent);
+  color: var(--color-ink);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  margin-top: 34px;
+  padding-top: 22px;
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+/* =========================================================
+   11. LANDING PAGES
+   ========================================================= */
+.landing-hero {
+  padding: 74px 0;
+  background:
+    linear-gradient(90deg, rgba(24, 68, 33, 0.94), rgba(47, 111, 62, 0.70)),
+    url("../images/gallery/Screenshot 2026-05-18 at 8.06.19 AM.png") center/cover;
+  color: var(--color-white);
+}
+
+.landing-hero p {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.landing-grid {
+  display: grid;
+  grid-template-columns: 1.02fr 0.98fr;
+  gap: 34px;
+  align-items: start;
+}
+
+/* =========================================================
+   12. ANIMATIONS
+   ========================================================= */
+@keyframes phonePulse {
+  0%, 100% {
+    text-shadow: 0 0 0 rgba(244, 185, 66, 0);
+  }
+
+  50% {
+    text-shadow: 0 0 18px rgba(244, 185, 66, 0.75);
+  }
+}
+
+/* =========================================================
+   13. RESPONSIVE
+   ========================================================= */
+@media (max-width: 920px) {
+  .nav {
+    align-items: flex-start;
+    padding: 14px 0;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 106px;
+    left: 18px;
+    right: 18px;
+    flex-direction: column;
+    align-items: stretch;
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 18px;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .nav-links.is-open {
+    display: flex;
+  }
+
+  .hero-grid,
+  .landing-grid,
+  .grid-2,
+  .grid-3,
+  .footer-grid,
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .site-header {
+    top: 42px;
+  }
+}
+
+@media (max-width: 560px) {
+  :root {
+    --section-space: 62px;
+  }
+
+  .phone-bar__inner {
+    font-size: 0.88rem;
+  }
+
+  .hero,
+  .landing-hero {
+    padding: 62px 0;
+  }
+
+  .cta-row .btn {
+    width: 100%;
+  }
+}

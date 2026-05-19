@@ -226,41 +226,41 @@ main {
     box-shadow var(--transition),
     background var(--transition);
 }
-
 .btn-primary {
   background: var(--color-accent);
   color: var(--color-ink);
   box-shadow: 0 10px 20px rgba(244, 185, 66, 0.24);
 }
-
 .btn-primary:hover,
 .btn-primary:focus-visible {
   transform: translateY(-3px) scale(1.04);
   box-shadow: var(--shadow-pop);
   background: #ffd163;
 }
-
 .btn-secondary {
   background: var(--color-primary);
   color: var(--color-white);
 }
-
 .btn-secondary:hover,
 .btn-secondary:focus-visible {
   transform: translateY(-3px) scale(1.04);
   box-shadow: var(--shadow-pop);
 }
-
 .btn-outline {
   border-color: var(--color-primary);
   color: var(--color-primary-dark);
   background: var(--color-white);
 }
-
 .btn-outline:hover,
 .btn-outline:focus-visible {
   transform: translateY(-3px);
   background: var(--color-soft);
+}
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
 }
 
 .cta-row {

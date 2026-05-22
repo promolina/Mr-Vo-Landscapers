@@ -356,7 +356,6 @@ main {
 
 .placeholder-img {
   min-height: 188px;
-  background-image: url("../images/gallery/Paver-installation.jpg");
   background-size: cover;
   background-position: center;
   display: grid;
@@ -374,6 +373,29 @@ main {
 /* =========================================================
    06. A SERVICE CARDS
    ========================================================= */
+.service-card-paver {
+  background-image: url("../images/gallery/Paver-installation.jpg");
+}
+
+.service-card-stamped-concrete {
+  background-image: url("../images/gallery/Stamped-Concrete.jpeg");
+}
+
+.service-card-commercial-paving {
+  background-image: url("../images/gallery/Commercial-Paving.jpg");
+}
+
+.service-card-artificial-grass {
+  background-image: url("../images/gallery/Artificial-Grass.jpg");
+}
+
+.service-card-sod-installation {
+  background-image: url("../images/gallery/Sod-Installation.jpg");
+}
+
+.service-card-lawn-overhaul {
+  background-image: url("../images/gallery/Lawn-Overhaul.jpg");
+}
 
 /* =========================================================
    07. FORMS
